@@ -474,6 +474,8 @@ export default class InputRange extends React.Component {
     console.log('maxValue: ', maxValue);
     console.log('minValue: ', minValue);
 
+    console.log('max, min: ', max, min);
+
     event.preventDefault();
 
     const value = valueTransformer.getValueFromPosition(position, minValue, maxValue, this.getTrackClientRect());

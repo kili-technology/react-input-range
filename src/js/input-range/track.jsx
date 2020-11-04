@@ -141,6 +141,7 @@ export default class Track extends React.Component {
    */
   @autobind
   handleMouseDown(event) {
+    console.log('track handleMouseDown')
     const clientX = event.touches ? event.touches[0].clientX : event.clientX;
     const trackClientRect = this.getClientRect();
     const position = {

@@ -24,7 +24,6 @@ export function getPercentageFromPosition(position, clientRect) {
  * @return {number}
  */
 export function getValueFromPosition(position, minValue, maxValue, clientRect) {
-  console.log('clientRect: ', clientRect);
   const sizePerc = getPercentageFromPosition(position, clientRect);
   const valueDiff = maxValue - minValue;
 

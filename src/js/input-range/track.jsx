@@ -148,6 +148,8 @@ export default class Track extends React.Component {
       x: clientX - trackClientRect.left,
       y: 0,
     };
+    console.log({clientX});
+    console.log({position});
 
     this.props.onTrackMouseDown(event, position);
 

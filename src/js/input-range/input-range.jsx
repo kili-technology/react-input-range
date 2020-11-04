@@ -240,9 +240,8 @@ export default class InputRange extends React.Component {
     const values = valueTransformer.getValueFromProps(this.props, this.isMultiValue());
     const positions = valueTransformer.getPositionsFromValues(values, this.props.minValue, this.props.maxValue, this.getTrackClientRect());
 
-    console.log('positions: ', positions);
-
     positions[key] = position;
+    console.log('positions: ', positions);
     this.lastKeyMoved = key;
 
     this.updatePositions(positions);
@@ -483,12 +482,6 @@ export default class InputRange extends React.Component {
 
     console.log('value_2: ', value);
     console.log('valstepValue: ', stepValue);
-
-    if (stepValue > max) {
-      const newMin = min + (stepValue - max);
-      const values = { newMin, stepValue };
-      this.props.onChange(values);
-    }
 
     if (!this.props.draggableTrack || stepValue > max || stepValue < min) {
       console.log('!this.props.draggableTrack ');

@@ -235,8 +235,12 @@ export default class InputRange extends React.Component {
    * @return {void}
    */
   updatePosition(key, position) {
+    console.log('key: ', key);
+    console.log('position: ', position);
     const values = valueTransformer.getValueFromProps(this.props, this.isMultiValue());
     const positions = valueTransformer.getPositionsFromValues(values, this.props.minValue, this.props.maxValue, this.getTrackClientRect());
+
+    console.log('positions: ', positions);
 
     positions[key] = position;
     this.lastKeyMoved = key;

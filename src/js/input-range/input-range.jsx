@@ -262,10 +262,14 @@ export default class InputRange extends React.Component {
       max: valueTransformer.getValueFromPosition(positions.max, this.props.minValue, this.props.maxValue, this.getTrackClientRect()),
     };
 
+    console.log('values: ', values);
+
     const transformedValues = {
       min: valueTransformer.getStepValueFromValue(values.min, this.props.step),
       max: valueTransformer.getStepValueFromValue(values.max, this.props.step),
     };
+
+    console.log('transformedValues: ', transformedValues);
 
     this.updateValues(transformedValues);
   }

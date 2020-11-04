@@ -248,6 +248,30 @@ export default class InputRange extends React.Component {
     this.updatePositions(positions);
   }
 
+    /**
+   * Update the position of a slider Kili Style
+   * @private
+   * @param {string} key
+   * @param {Point} position
+   * @return {void}
+   */
+  updatePositionKili(stepValue) {
+    const values = valueTransformer.getValueFromProps(this.props, this.isMultiValue());
+    const roundMin = Math.round(values.min);
+    const roundMax = Math.round(values.max);
+    const middle = Math.round((roundMin + roundMax) / 2);
+    const newMin = stepValue - (middle - roundMin);
+    const newMax = stepValue + (roundMax - middle);
+    const newValues = { min: newMin, max: newMax };
+    const positions = valueTransformer.getPositionsFromValues(newValues, this.props.minValue, this.props.maxValue, this.getTrackClientRect());
+
+    // positions[key] = position;
+    console.log('positions: ', positions);
+    // this.lastKeyMoved = key;
+
+    this.updatePositions(positions);
+  }
+
   /**
    * Update the positions of multiple sliders
    * @private
@@ -486,7 +510,8 @@ export default class InputRange extends React.Component {
 
     if (!this.props.draggableTrack || stepValue > max || stepValue < min) {
       console.log('!this.props.draggableTrack ');
-      this.updatePosition(this.getKeyByPosition(position), position);
+      // this.updatePosition(this.getKeyByPosition(position), position);
+      this.updatePositionKili(stepValue);
     }
   }
 

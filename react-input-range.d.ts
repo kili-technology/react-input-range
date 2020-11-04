@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 export interface Range {
   max: number;
@@ -32,9 +32,9 @@ export interface InputRangeProps {
   onChange: (value: Range | number) => void;
   onChangeStart?: (value: Range | number) => void;
   onChangeComplete?: (value: Range | number) => void;
+  onClick?: (value: any) => void;
   step?: number;
   value: Range | number;
 }
 
-export default class InputRange extends React.Component<InputRangeProps, any> {
-}
+export default class InputRange extends React.Component<InputRangeProps, any> {}

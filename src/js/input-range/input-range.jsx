@@ -487,7 +487,7 @@ export default class InputRange extends React.Component {
     if (stepValue > max) {
       const newMin = min + (stepValue - max);
       const values = { newMin, stepValue };
-      this.onChange(values);
+      this.props.onChange(values);
     }
 
     if (!this.props.draggableTrack || stepValue > max || stepValue < min) {

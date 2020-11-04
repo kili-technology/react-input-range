@@ -453,6 +453,7 @@ export default class InputRange extends React.Component {
    */
   @autobind
   handleTrackMouseDown(event, position) {
+    console.log('handleTrackMouseDown');
     if (this.props.disabled) {
       return;
     }

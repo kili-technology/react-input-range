@@ -108,6 +108,7 @@ export default class Track extends React.Component {
    */
   @autobind
   handleMouseMove(event) {
+    console.log('handleMouseMove');
     if (!this.props.draggableTrack) {
       return;
     }

@@ -235,14 +235,10 @@ export default class InputRange extends React.Component {
    * @return {void}
    */
   updatePosition(key, position) {
-    console.log('key: ', key);
-    console.log('position: ', position);
     const values = valueTransformer.getValueFromProps(this.props, this.isMultiValue());
-    console.log('updatePosition: ', values);
     const positions = valueTransformer.getPositionsFromValues(values, this.props.minValue, this.props.maxValue, this.getTrackClientRect());
 
     positions[key] = position;
-    console.log('positions: ', positions);
     this.lastKeyMoved = key;
 
     this.updatePositions(positions);
@@ -265,10 +261,6 @@ export default class InputRange extends React.Component {
     const newValues = { min: newMin, max: newMax };
     const positions = valueTransformer.getPositionsFromValues(newValues, this.props.minValue, this.props.maxValue, this.getTrackClientRect());
 
-    // positions[key] = position;
-    console.log('positions: ', positions);
-    // this.lastKeyMoved = key;
-
     this.updatePositions(positions);
   }
 
@@ -286,14 +278,10 @@ export default class InputRange extends React.Component {
       max: valueTransformer.getValueFromPosition(positions.max, this.props.minValue, this.props.maxValue, this.getTrackClientRect()),
     };
 
-    console.log('values: ', values);
-
     const transformedValues = {
       min: valueTransformer.getStepValueFromValue(values.min, this.props.step),
       max: valueTransformer.getStepValueFromValue(values.max, this.props.step),
     };
-
-    console.log('transformedValues: ', transformedValues);
 
     this.updateValues(transformedValues);
   }
@@ -485,7 +473,6 @@ export default class InputRange extends React.Component {
    */
   @autobind
   handleTrackMouseDown(event, position) {
-    console.log('handleTrackMouseDown');
     if (this.props.disabled) {
       return;
     }
@@ -495,21 +482,13 @@ export default class InputRange extends React.Component {
       minValue,
       value: { max, min },
     } = this.props;
-    console.log('maxValue: ', maxValue);
-    console.log('minValue: ', minValue);
-
-    console.log('max, min: ', max, min);
 
     event.preventDefault();
 
     const value = valueTransformer.getValueFromPosition(position, minValue, maxValue, this.getTrackClientRect());
     const stepValue = valueTransformer.getStepValueFromValue(value, this.props.step);
 
-    console.log('value_2: ', value);
-    console.log('valstepValue: ', stepValue);
-
     if (!this.props.draggableTrack || stepValue > max || stepValue < min) {
-      console.log('!this.props.draggableTrack ');
       // this.updatePosition(this.getKeyByPosition(position), position);
       this.updatePositionKili(stepValue);
     }
@@ -522,16 +501,12 @@ export default class InputRange extends React.Component {
    */
   @autobind
   handleInteractionStart() {
-    console.log('input-range handleInteractionStart');
     if (this.props.onChangeStart) {
       this.props.onChangeStart(this.props.value);
     }
 
     if (this.props.onChangeComplete && !isDefined(this.startValue)) {
       this.startValue = this.props.value;
-    }
-    if (this.props.onClick) {
-      console.log(this.props);
     }
   }
 

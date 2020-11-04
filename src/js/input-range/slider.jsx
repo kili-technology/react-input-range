@@ -167,7 +167,6 @@ export default class Slider extends React.Component {
    */
   @autobind
   handleMouseDown() {
-    console.log('slider handleMouseDown');
     this.addDocumentMouseMoveListener();
     this.addDocumentMouseUpListener();
   }

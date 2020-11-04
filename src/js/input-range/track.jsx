@@ -108,7 +108,6 @@ export default class Track extends React.Component {
    */
   @autobind
   handleMouseMove(event) {
-    console.log('handleMouseMove');
     if (!this.props.draggableTrack) {
       return;
     }
@@ -141,16 +140,12 @@ export default class Track extends React.Component {
    */
   @autobind
   handleMouseDown(event) {
-    console.log('track handleMouseDown');
     const clientX = event.touches ? event.touches[0].clientX : event.clientX;
     const trackClientRect = this.getClientRect();
-    console.log('trackClientRect: ', trackClientRect);
     const position = {
       x: clientX - trackClientRect.left,
       y: 0,
     };
-    console.log('clientX:', clientX);
-    console.log('position: ', position);
 
     this.props.onTrackMouseDown(event, position);
 

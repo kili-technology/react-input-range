@@ -481,6 +481,7 @@ export default class InputRange extends React.Component {
    */
   @autobind
   handleInteractionStart() {
+    console.log('input-range handleInteractionStart');
     if (this.props.onChangeStart) {
       this.props.onChangeStart(this.props.value);
     }

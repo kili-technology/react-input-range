@@ -36,6 +36,7 @@ export default class InputRange extends React.Component {
       onChangeStart: PropTypes.func,
       onChange: PropTypes.func.isRequired,
       onChangeComplete: PropTypes.func,
+      onClick: PropTypes.func,
       step: PropTypes.number,
       value: valuePropType,
     };
@@ -485,6 +486,9 @@ export default class InputRange extends React.Component {
 
     if (this.props.onChangeComplete && !isDefined(this.startValue)) {
       this.startValue = this.props.value;
+    }
+    if (this.props.onClick){
+      console.log(this.props)
     }
   }
 
